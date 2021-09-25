@@ -231,3 +231,56 @@ StatusCode | Response Data | Description
 401 | None | your api key not valid
 404 | ``` {"details": "user not registered"} ``` | user not register
 503 | ``` {"details" :"service not available"} ``` | when service not available
+
+
+## change password
+
+```shell
+# With shell, you can just pass the correct header with each request
+curl "https://sandbox.enayapay.com/api/v2.1/change/password/" \
+  -H "x-api-key: gffdgdfgdfgdfgdfgdgd , token: ffdfdsfsdfds "
+```
+
+> Make sure to replace `gffdgdfgdfgdfgdfgdgd` with your API key and Token.
+
+
+### HTTP Request
+`POST https://sandbox.enayapay.com/api/v2.1/change/password/`
+
+### Description
+
+`` this endpoint use to change user password``
+
+### Headers
+```json
+ {
+    "x-api-key": "fddfgdfgdfgdfgdfg",
+    "token": "fsfsfkwoieriworiewriweiriwerieworioweir"
+  }
+
+```
+### Body
+```json
+ {
+    "current_password": "gfgfdgdfg",
+    "new_password": "dfdfsdfdsfs"
+  }
+
+
+```
+### Parameters Description
+Parameter | Default | Description | Type
+--------- | ------- | ----------- | ----------
+current_password | required | old password that user need to change | String
+new_password | required | new_password that user need to change to it | String
+
+
+### Response 
+StatusCode | Response Data | Description  
+--------- | ------- | ---------
+200 | ``` {"details": "password updated successful"} ```| user changed his password successfully
+203 | ``{"details": "wrong current password"}``| invalid old password
+400 | ``{ "details": {"new_password": ["This field is required."]} }``| Bad request occurred when forget parameter 
+401 | None | your api key not valid
+404 | ``` {"details": "user not registered"} ``` | user not register
+503 | ``` {"details" :"service not available"} ``` | when service not available
