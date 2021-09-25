@@ -20,7 +20,8 @@ meta:
 # Introduction
 
 Welcome to the EnayaPay API! You can use our API to access EnayaPay API endpoints.
-# Register
+# user account
+## Register
 
 ```shell
 # With shell, you can just pass the correct header with each request
@@ -33,14 +34,14 @@ curl "https://sandbox.enayapay.com/api/v2.1/register/" \
 ### HTTP Request
 
 `POST https://sandbox.enayapay.com/api/v2.1/register/`
-## Headers
+### Headers
 ```json
  {
     "x-api-key": "fddfgdfgdfgdfgdfg"
   }
 
 ```
-## Body
+### Body
 ```json
  {
     "user_phone": "2499++++++++",
@@ -58,7 +59,7 @@ user_name | required | userName of user | String
 user_password | required | user password | String
 
 
-## Response 
+### Response 
 StatusCode | Response Data | Description  
 --------- | ------- | ---------
 201 | None | user created and otp will send in phone number
@@ -69,7 +70,7 @@ StatusCode | Response Data | Description
 503 | ``` {"details" :"service not available"} ``` | when service not available
 
 
-# verify
+## verify
 
 ```shell
 # With shell, you can just pass the correct header with each request
@@ -82,14 +83,14 @@ curl "https://sandbox.enayapay.com/api/v2.1/verify/" \
 ### HTTP Request
 
 `POST https://sandbox.enayapay.com/api/v2.1/verify/`
-## Headers
+### Headers
 ```json
  {
     "x-api-key": "fddfgdfgdfgdfgdfg"
   }
 
 ```
-## Body
+### Body
 ```json
  {
     "user_phone": "2499++++++++",
@@ -105,7 +106,7 @@ user_phone | required | user phone number | String
 user_otp | required | otp of user | String
 
 
-## Response 
+### Response 
 StatusCode | Response Data | Description  
 --------- | ------- | ---------
 200 | ``` {"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IjU3NTMwNyIsImV4cGlyeSI6IjIwMjEtMTEtMTMifQ.2uU8eOnw8biYxH55EblrTHOz5nM4rcP1kiIa7S46mFs","user_name": "doctor"} ```| user verified
@@ -116,7 +117,7 @@ StatusCode | Response Data | Description
 503 | ``` {"details" :"service not available"} ``` | when service not available
 
 
-# login
+## login
 
 ```shell
 # With shell, you can just pass the correct header with each request
@@ -129,14 +130,14 @@ curl "https://sandbox.enayapay.com/api/v2.1/login/" \
 ### HTTP Request
 
 `POST https://sandbox.enayapay.com/api/v2.1/login/`
-## Headers
+### Headers
 ```json
  {
     "x-api-key": "fddfgdfgdfgdfgdfg"
   }
 
 ```
-## Body
+### Body
 ```json
  {
     "user_phone": "2499++++++++",
@@ -152,7 +153,7 @@ user_phone | required | user phone number | String
 user_password | required | password of user | String
 
 
-## Response 
+### Response 
 StatusCode | Response Data | Description  
 --------- | ------- | ---------
 200 | ``` {"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IjU3NTMwNyIsImV4cGlyeSI6IjIwMjEtMTEtMTMifQ.2uU8eOnw8biYxH55EblrTHOz5nM4rcP1kiIa7S46mFs","user_name": "doctor","status": "active"} ```| user authorized
