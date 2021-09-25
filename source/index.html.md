@@ -180,7 +180,7 @@ StatusCode | Response Data | Description
 
 
 
-## rest/password
+## rest password
 
 ```shell
 # With shell, you can just pass the correct header with each request
