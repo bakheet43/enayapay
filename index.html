@@ -320,6 +320,9 @@
                   <li>
                     <a href="#login" class="toc-h2 toc-link" data-title="login">login</a>
                   </li>
+                  <li>
+                    <a href="#rest-password" class="toc-h2 toc-link" data-title="rest/password">rest/password</a>
+                  </li>
               </ul>
           </li>
           <li>
@@ -567,6 +570,89 @@ curl <span class="s2">"https://sandbox.enayapay.com/api/v2.1/login/"</span> <spa
 <td>203</td>
 <td>None</td>
 <td>wrong password</td>
+</tr>
+<tr>
+<td>400</td>
+<td><code>{ &quot;details&quot;: {&quot;user_password&quot;: [&quot;This field is required.&quot;]} }</code></td>
+<td>Bad request occurred when forget parameter</td>
+</tr>
+<tr>
+<td>401</td>
+<td>None</td>
+<td>your api key not valid</td>
+</tr>
+<tr>
+<td>404</td>
+<td><code>{&quot;details&quot;: &quot;user not registered&quot;}</code></td>
+<td>user not register</td>
+</tr>
+<tr>
+<td>503</td>
+<td><code>{&quot;details&quot; :&quot;service not available&quot;}</code></td>
+<td>when service not available</td>
+</tr>
+</tbody></table>
+<h2 id='rest-password'>rest/password</h2><div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
+curl <span class="s2">"https://sandbox.enayapay.com/api/v2.1/rest/password/"</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"x-api-key: gffdgdfgdfgdfgdfgdgd , token: ffdfdsfsdfds "</span>
+</code></pre></div>
+<blockquote>
+<p>Make sure to replace <code>gffdgdfgdfgdfgdfgdgd</code> with your API key and Token.</p>
+</blockquote>
+<h3 id='http-request-4'>HTTP Request</h3>
+<p><code>POST https://sandbox.enayapay.com/api/v2.1/rest/password/</code></p>
+<h3 id='description-4'>Description</h3>
+<p><code>this endpoint use to rest user password when he forget</code></p>
+<h3 id='headers-4'>Headers</h3><div class="highlight"><pre class="highlight json tab-json"><code><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"x-api-key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fddfgdfgdfgdfgdfg"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fsfsfkwoieriworiewriweiriwerieworioweir"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+
+</span></code></pre></div><h3 id='body-4'>Body</h3><div class="highlight"><pre class="highlight json tab-json"><code><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"user_phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2499++++++++"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"user_password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dfdfsdfdsfs"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+
+
+</span></code></pre></div><h3 id='parameters-description-4'>Parameters Description</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>user_phone</td>
+<td>required</td>
+<td>user phone number</td>
+<td>String</td>
+</tr>
+<tr>
+<td>user_password</td>
+<td>required</td>
+<td>password of user</td>
+<td>String</td>
+</tr>
+</tbody></table>
+<h3 id='response-4'>Response</h3>
+<table><thead>
+<tr>
+<th>StatusCode</th>
+<th>Response Data</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td><code>{&quot;user_name&quot;: &quot;doctor&quot;,&quot;status&quot;: &quot;active&quot;}</code></td>
+<td>user rest his password successful</td>
+</tr>
+<tr>
+<td>203</td>
+<td>None</td>
+<td>not valid token</td>
 </tr>
 <tr>
 <td>400</td>
