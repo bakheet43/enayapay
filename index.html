@@ -309,16 +309,76 @@
             <a href="#introduction" class="toc-h1 toc-link" data-title="Introduction">Introduction</a>
           </li>
           <li>
-            <a href="#user-account" class="toc-h1 toc-link" data-title="user account">user account</a>
+            <a href="#user-account-management" class="toc-h1 toc-link" data-title="User Account Management">User Account Management</a>
               <ul class="toc-list-h2">
                   <li>
                     <a href="#register" class="toc-h2 toc-link" data-title="Register">Register</a>
                   </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#with-shell-you-can-just-pass-the-correct-header-with-each-request" class="toc-h1 toc-link" data-title="With shell, you can just pass the correct header with each request">With shell, you can just pass the correct header with each request</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#http-request" class="toc-h2 toc-link" data-title="HTTP Request">HTTP Request</a>
+                  </li>
+                  <li>
+                    <a href="#headers" class="toc-h2 toc-link" data-title="Headers">Headers</a>
+                  </li>
+                  <li>
+                    <a href="#body" class="toc-h2 toc-link" data-title="Body">Body</a>
+                  </li>
+                  <li>
+                    <a href="#parameters-description" class="toc-h2 toc-link" data-title="Parameters Description">Parameters Description</a>
+                  </li>
+                  <li>
+                    <a href="#response" class="toc-h2 toc-link" data-title="Response">Response</a>
+                  </li>
                   <li>
                     <a href="#verify" class="toc-h2 toc-link" data-title="verify">verify</a>
                   </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#with-shell-you-can-just-pass-the-correct-header-with-each-request-2" class="toc-h1 toc-link" data-title="With shell, you can just pass the correct header with each request">With shell, you can just pass the correct header with each request</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#http-request-2" class="toc-h2 toc-link" data-title="HTTP Request">HTTP Request</a>
+                  </li>
+                  <li>
+                    <a href="#headers-2" class="toc-h2 toc-link" data-title="Headers">Headers</a>
+                  </li>
+                  <li>
+                    <a href="#body-2" class="toc-h2 toc-link" data-title="Body">Body</a>
+                  </li>
+                  <li>
+                    <a href="#parameters-description-2" class="toc-h2 toc-link" data-title="Parameters Description">Parameters Description</a>
+                  </li>
+                  <li>
+                    <a href="#response-2" class="toc-h2 toc-link" data-title="Response">Response</a>
+                  </li>
                   <li>
                     <a href="#login" class="toc-h2 toc-link" data-title="login">login</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#with-shell-you-can-just-pass-the-correct-header-with-each-request-3" class="toc-h1 toc-link" data-title="With shell, you can just pass the correct header with each request">With shell, you can just pass the correct header with each request</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#http-request-3" class="toc-h2 toc-link" data-title="HTTP Request">HTTP Request</a>
+                  </li>
+                  <li>
+                    <a href="#headers-3" class="toc-h2 toc-link" data-title="Headers">Headers</a>
+                  </li>
+                  <li>
+                    <a href="#body-3" class="toc-h2 toc-link" data-title="Body">Body</a>
+                  </li>
+                  <li>
+                    <a href="#parameters-description-3" class="toc-h2 toc-link" data-title="Parameters Description">Parameters Description</a>
+                  </li>
+                  <li>
+                    <a href="#response-3" class="toc-h2 toc-link" data-title="Response">Response</a>
                   </li>
               </ul>
           </li>
@@ -336,10 +396,14 @@
       <div class="content">
         <h1 id='introduction'>Introduction</h1>
 <p>Welcome to the EnayaPay API! You can use our API to access EnayaPay API endpoints.</p>
-<h1 id='user-account'>user account</h1><h2 id='register'>Register</h2><div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
-curl <span class="s2">"https://sandbox.enayapay.com/api/v2.1/register/"</span> <span class="se">\</span>
-  <span class="nt">-H</span> <span class="s2">"x-api-key: gffdgdfgdfgdfgdfgdgd"</span>
-</code></pre></div>
+<h1 id='user-account-management'>User Account Management</h1><h2 id='register'>Register</h2><h3 id='description'>Description</h3>
+<p>the use of this endpoint to register new user using phone number as id verification .
+```shell</p>
+<h1 id='with-shell-you-can-just-pass-the-correct-header-with-each-request'>With shell, you can just pass the correct header with each request</h1>
+<p>curl &quot;https://sandbox.enayapay.com/api/v2.1/register/&quot; \
+  -H &quot;x-api-key: gffdgdfgdfgdfgdfgdgd&quot;
+```</p>
+
 <blockquote>
 <p>Make sure to replace <code>gffdgdfgdfgdfgdfgdgd</code> with your API key.</p>
 </blockquote>
@@ -423,10 +487,14 @@ curl <span class="s2">"https://sandbox.enayapay.com/api/v2.1/register/"</span> <
 <td>when service not available</td>
 </tr>
 </tbody></table>
-<h2 id='verify'>verify</h2><div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
-curl <span class="s2">"https://sandbox.enayapay.com/api/v2.1/verify/"</span> <span class="se">\</span>
-  <span class="nt">-H</span> <span class="s2">"x-api-key: gffdgdfgdfgdfgdfgdgd"</span>
-</code></pre></div>
+<h2 id='verify'>verify</h2><h3 id='description-2'>Description</h3>
+<p>the use of this end point to verify user phone number .
+```shell</p>
+<h1 id='with-shell-you-can-just-pass-the-correct-header-with-each-request-2'>With shell, you can just pass the correct header with each request</h1>
+<p>curl &quot;https://sandbox.enayapay.com/api/v2.1/verify/&quot; \
+  -H &quot;x-api-key: gffdgdfgdfgdfgdfgdgd&quot;
+```</p>
+
 <blockquote>
 <p>Make sure to replace <code>gffdgdfgdfgdfgdfgdgd</code> with your API key.</p>
 </blockquote>
@@ -503,10 +571,14 @@ curl <span class="s2">"https://sandbox.enayapay.com/api/v2.1/verify/"</span> <sp
 <td>when service not available</td>
 </tr>
 </tbody></table>
-<h2 id='login'>login</h2><div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
-curl <span class="s2">"https://sandbox.enayapay.com/api/v2.1/login/"</span> <span class="se">\</span>
-  <span class="nt">-H</span> <span class="s2">"x-api-key: gffdgdfgdfgdfgdfgdgd"</span>
-</code></pre></div>
+<h2 id='login'>login</h2><h3 id='description-3'>Description</h3>
+<p>the use of this endpoint used to access user account by use it&#39;s password . 
+```shell</p>
+<h1 id='with-shell-you-can-just-pass-the-correct-header-with-each-request-3'>With shell, you can just pass the correct header with each request</h1>
+<p>curl &quot;https://sandbox.enayapay.com/api/v2.1/login/&quot; \
+  -H &quot;x-api-key: gffdgdfgdfgdfgdfgdgd&quot;
+```</p>
+
 <blockquote>
 <p>Make sure to replace <code>gffdgdfgdfgdfgdfgdgd</code> with your API key.</p>
 </blockquote>
