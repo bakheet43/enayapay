@@ -20,9 +20,10 @@ meta:
 # Introduction
 
 Welcome to the EnayaPay API! You can use our API to access EnayaPay API endpoints.
-# user account
+# User Account Management
 ## Register
-
+### Description
+the use of this endpoint to register new user using phone number as id verification .
 ```shell
 # With shell, you can just pass the correct header with each request
 curl "https://sandbox.enayapay.com/api/v2.1/register/" \
@@ -71,7 +72,8 @@ StatusCode | Response Data | Description
 
 
 ## verify
-
+### Description
+the use of this end point to verify user phone number .
 ```shell
 # With shell, you can just pass the correct header with each request
 curl "https://sandbox.enayapay.com/api/v2.1/verify/" \
@@ -118,7 +120,8 @@ StatusCode | Response Data | Description
 
 
 ## login
-
+### Description
+the use of this endpoint used to access user account by use it's password . 
 ```shell
 # With shell, you can just pass the correct header with each request
 curl "https://sandbox.enayapay.com/api/v2.1/login/" \
@@ -128,8 +131,8 @@ curl "https://sandbox.enayapay.com/api/v2.1/login/" \
 > Make sure to replace `gffdgdfgdfgdfgdfgdgd` with your API key.
 
 ### HTTP Request
-
 `POST https://sandbox.enayapay.com/api/v2.1/login/`
+
 ### Headers
 ```json
  {
