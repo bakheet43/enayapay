@@ -309,53 +309,16 @@
             <a href="#introduction" class="toc-h1 toc-link" data-title="Introduction">Introduction</a>
           </li>
           <li>
-            <a href="#register" class="toc-h1 toc-link" data-title="Register">Register</a>
+            <a href="#user-account" class="toc-h1 toc-link" data-title="user account">user account</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#http-request" class="toc-h2 toc-link" data-title="HTTP Request">HTTP Request</a>
+                    <a href="#register" class="toc-h2 toc-link" data-title="Register">Register</a>
                   </li>
                   <li>
-                    <a href="#headers" class="toc-h2 toc-link" data-title="Headers">Headers</a>
+                    <a href="#verify" class="toc-h2 toc-link" data-title="verify">verify</a>
                   </li>
                   <li>
-                    <a href="#body" class="toc-h2 toc-link" data-title="Body">Body</a>
-                  </li>
-                  <li>
-                    <a href="#response" class="toc-h2 toc-link" data-title="Response">Response</a>
-                  </li>
-              </ul>
-          </li>
-          <li>
-            <a href="#verify" class="toc-h1 toc-link" data-title="verify">verify</a>
-              <ul class="toc-list-h2">
-                  <li>
-                    <a href="#http-request-2" class="toc-h2 toc-link" data-title="HTTP Request">HTTP Request</a>
-                  </li>
-                  <li>
-                    <a href="#headers-2" class="toc-h2 toc-link" data-title="Headers">Headers</a>
-                  </li>
-                  <li>
-                    <a href="#body-2" class="toc-h2 toc-link" data-title="Body">Body</a>
-                  </li>
-                  <li>
-                    <a href="#response-2" class="toc-h2 toc-link" data-title="Response">Response</a>
-                  </li>
-              </ul>
-          </li>
-          <li>
-            <a href="#login" class="toc-h1 toc-link" data-title="login">login</a>
-              <ul class="toc-list-h2">
-                  <li>
-                    <a href="#http-request-3" class="toc-h2 toc-link" data-title="HTTP Request">HTTP Request</a>
-                  </li>
-                  <li>
-                    <a href="#headers-3" class="toc-h2 toc-link" data-title="Headers">Headers</a>
-                  </li>
-                  <li>
-                    <a href="#body-3" class="toc-h2 toc-link" data-title="Body">Body</a>
-                  </li>
-                  <li>
-                    <a href="#response-3" class="toc-h2 toc-link" data-title="Response">Response</a>
+                    <a href="#login" class="toc-h2 toc-link" data-title="login">login</a>
                   </li>
               </ul>
           </li>
@@ -373,7 +336,7 @@
       <div class="content">
         <h1 id='introduction'>Introduction</h1>
 <p>Welcome to the EnayaPay API! You can use our API to access EnayaPay API endpoints.</p>
-<h1 id='register'>Register</h1><div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
+<h1 id='user-account'>user account</h1><h2 id='register'>Register</h2><div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
 curl <span class="s2">"https://sandbox.enayapay.com/api/v2.1/register/"</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s2">"x-api-key: gffdgdfgdfgdfgdfgdgd"</span>
 </code></pre></div>
@@ -382,11 +345,11 @@ curl <span class="s2">"https://sandbox.enayapay.com/api/v2.1/register/"</span> <
 </blockquote>
 <h3 id='http-request'>HTTP Request</h3>
 <p><code>POST https://sandbox.enayapay.com/api/v2.1/register/</code></p>
-<h2 id='headers'>Headers</h2><div class="highlight"><pre class="highlight json tab-json"><code><span class="w"> </span><span class="p">{</span><span class="w">
+<h3 id='headers'>Headers</h3><div class="highlight"><pre class="highlight json tab-json"><code><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nl">"x-api-key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fddfgdfgdfgdfgdfg"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 
-</span></code></pre></div><h2 id='body'>Body</h2><div class="highlight"><pre class="highlight json tab-json"><code><span class="w"> </span><span class="p">{</span><span class="w">
+</span></code></pre></div><h3 id='body'>Body</h3><div class="highlight"><pre class="highlight json tab-json"><code><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nl">"user_phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2499++++++++"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"user_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"doctor"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"user_password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"calicofdhfdsfsd"</span><span class="w">
@@ -421,7 +384,7 @@ curl <span class="s2">"https://sandbox.enayapay.com/api/v2.1/register/"</span> <
 <td>String</td>
 </tr>
 </tbody></table>
-<h2 id='response'>Response</h2>
+<h3 id='response'>Response</h3>
 <table><thead>
 <tr>
 <th>StatusCode</th>
@@ -460,7 +423,7 @@ curl <span class="s2">"https://sandbox.enayapay.com/api/v2.1/register/"</span> <
 <td>when service not available</td>
 </tr>
 </tbody></table>
-<h1 id='verify'>verify</h1><div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
+<h2 id='verify'>verify</h2><div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
 curl <span class="s2">"https://sandbox.enayapay.com/api/v2.1/verify/"</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s2">"x-api-key: gffdgdfgdfgdfgdfgdgd"</span>
 </code></pre></div>
@@ -469,11 +432,11 @@ curl <span class="s2">"https://sandbox.enayapay.com/api/v2.1/verify/"</span> <sp
 </blockquote>
 <h3 id='http-request-2'>HTTP Request</h3>
 <p><code>POST https://sandbox.enayapay.com/api/v2.1/verify/</code></p>
-<h2 id='headers-2'>Headers</h2><div class="highlight"><pre class="highlight json tab-json"><code><span class="w"> </span><span class="p">{</span><span class="w">
+<h3 id='headers-2'>Headers</h3><div class="highlight"><pre class="highlight json tab-json"><code><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nl">"x-api-key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fddfgdfgdfgdfgdfg"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 
-</span></code></pre></div><h2 id='body-2'>Body</h2><div class="highlight"><pre class="highlight json tab-json"><code><span class="w"> </span><span class="p">{</span><span class="w">
+</span></code></pre></div><h3 id='body-2'>Body</h3><div class="highlight"><pre class="highlight json tab-json"><code><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nl">"user_phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2499++++++++"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"user_otp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"454345"</span><span class="w">
   </span><span class="p">}</span><span class="w">
@@ -501,7 +464,7 @@ curl <span class="s2">"https://sandbox.enayapay.com/api/v2.1/verify/"</span> <sp
 <td>String</td>
 </tr>
 </tbody></table>
-<h2 id='response-2'>Response</h2>
+<h3 id='response-2'>Response</h3>
 <table><thead>
 <tr>
 <th>StatusCode</th>
@@ -540,7 +503,7 @@ curl <span class="s2">"https://sandbox.enayapay.com/api/v2.1/verify/"</span> <sp
 <td>when service not available</td>
 </tr>
 </tbody></table>
-<h1 id='login'>login</h1><div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
+<h2 id='login'>login</h2><div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
 curl <span class="s2">"https://sandbox.enayapay.com/api/v2.1/login/"</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s2">"x-api-key: gffdgdfgdfgdfgdfgdgd"</span>
 </code></pre></div>
@@ -549,11 +512,11 @@ curl <span class="s2">"https://sandbox.enayapay.com/api/v2.1/login/"</span> <spa
 </blockquote>
 <h3 id='http-request-3'>HTTP Request</h3>
 <p><code>POST https://sandbox.enayapay.com/api/v2.1/login/</code></p>
-<h2 id='headers-3'>Headers</h2><div class="highlight"><pre class="highlight json tab-json"><code><span class="w"> </span><span class="p">{</span><span class="w">
+<h3 id='headers-3'>Headers</h3><div class="highlight"><pre class="highlight json tab-json"><code><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nl">"x-api-key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fddfgdfgdfgdfgdfg"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 
-</span></code></pre></div><h2 id='body-3'>Body</h2><div class="highlight"><pre class="highlight json tab-json"><code><span class="w"> </span><span class="p">{</span><span class="w">
+</span></code></pre></div><h3 id='body-3'>Body</h3><div class="highlight"><pre class="highlight json tab-json"><code><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nl">"user_phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2499++++++++"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"user_password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dfdfsdfdsfs"</span><span class="w">
   </span><span class="p">}</span><span class="w">
@@ -581,7 +544,7 @@ curl <span class="s2">"https://sandbox.enayapay.com/api/v2.1/login/"</span> <spa
 <td>String</td>
 </tr>
 </tbody></table>
-<h2 id='response-3'>Response</h2>
+<h3 id='response-3'>Response</h3>
 <table><thead>
 <tr>
 <th>StatusCode</th>
