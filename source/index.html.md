@@ -69,7 +69,7 @@ StatusCode | Response Data | Description
 --------- | ------- | ---------
 201 | None | user created and otp will send in phone number
 302 | None | user already registered
-333 | `` {"details" : "your number not valid"} ``| phone number of user not valid
+406 | `` {"details" : "your number not valid"} ``| phone number of user not valid
 400 | `` { "details": {"user_password": [ "This field is required."]} } `` | Bad request occurred when forget parameter
 502 | ```{"details" : "bad getway" }``` |  bad getway of sms getway
 503 | ``` {"details" :"service not available"} ``` | when service not available
