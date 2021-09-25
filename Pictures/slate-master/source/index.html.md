@@ -170,7 +170,7 @@ user_password | required | password of user | String
 ### Response 
 StatusCode | Response Data | Description  
 --------- | ------- | ---------
-200 | ``` {"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IjU3NTMwNyIsImV4cGlyeSI6IjIwMjEtMTEtMTMifQ.2uU8eOnw8biYxH55EblrTHOz5nM4rcP1kiIa7S46mFs","user_name": "doctor","status": "active"} ```| user authorized
+200 | ``` {"user_name": "doctor","status": "active"} ```| user authorized
 203 | None | wrong password
 400 | ``{ "details": {"user_password": ["This field is required."]} }``| Bad request occurred when forget parameter 
 401 | None | your api key not valid
