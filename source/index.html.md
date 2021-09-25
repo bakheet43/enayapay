@@ -30,12 +30,15 @@ curl "https://sandbox.enayapay.com/api/v2.1/register/" \
 ```
 
 > Make sure to replace `gffdgdfgdfgdfgdfgdgd` with your API key.
-### Description
-the use of this endpoint to register new user using phone number as id verification .
 
 ### HTTP Request
 
 `POST https://sandbox.enayapay.com/api/v2.1/register/`
+
+### Description
+
+`the use of this endpoint to register new user using phone number as id verification .`
+
 ### Headers
 ```json
  {
@@ -85,6 +88,10 @@ curl "https://sandbox.enayapay.com/api/v2.1/verify/" \
 ### HTTP Request
 
 `POST https://sandbox.enayapay.com/api/v2.1/verify/`
+### Description 
+
+``the use of this endpoint to verification user phone number that he used``
+
 ### Headers
 ```json
  {
@@ -132,6 +139,10 @@ curl "https://sandbox.enayapay.com/api/v2.1/login/" \
 
 ### HTTP Request
 `POST https://sandbox.enayapay.com/api/v2.1/login/`
+
+### Description
+
+`` this endpoint use to access user account using password``
 
 ### Headers
 ```json
