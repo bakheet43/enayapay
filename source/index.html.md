@@ -176,3 +176,58 @@ StatusCode | Response Data | Description
 401 | None | your api key not valid
 404 | ``` {"details": "user not registered"} ``` | user not register
 503 | ``` {"details" :"service not available"} ``` | when service not available
+
+
+
+
+## rest/password
+
+```shell
+# With shell, you can just pass the correct header with each request
+curl "https://sandbox.enayapay.com/api/v2.1/rest/password/" \
+  -H "x-api-key: gffdgdfgdfgdfgdfgdgd , token: ffdfdsfsdfds "
+```
+
+> Make sure to replace `gffdgdfgdfgdfgdfgdgd` with your API key and Token.
+
+
+### HTTP Request
+`POST https://sandbox.enayapay.com/api/v2.1/rest/password/`
+
+### Description
+
+`` this endpoint use to rest user password when he forget``
+
+### Headers
+```json
+ {
+    "x-api-key": "fddfgdfgdfgdfgdfg",
+    "token": "fsfsfkwoieriworiewriweiriwerieworioweir"
+  }
+
+```
+### Body
+```json
+ {
+    "user_phone": "2499++++++++",
+    "user_password": "dfdfsdfdsfs"
+  }
+
+
+```
+### Parameters Description
+Parameter | Default | Description | Type
+--------- | ------- | ----------- | ----------
+user_phone | required | user phone number | String
+user_password | required | password of user | String
+
+
+### Response 
+StatusCode | Response Data | Description  
+--------- | ------- | ---------
+200 | ``` {"user_name": "doctor","status": "active"} ```| user rest his password successful
+203 | None | not valid token
+400 | ``{ "details": {"user_password": ["This field is required."]} }``| Bad request occurred when forget parameter 
+401 | None | your api key not valid
+404 | ``` {"details": "user not registered"} ``` | user not register
+503 | ``` {"details" :"service not available"} ``` | when service not available
