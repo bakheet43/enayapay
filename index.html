@@ -329,6 +329,14 @@
               </ul>
           </li>
           <li>
+            <a href="#card" class="toc-h1 toc-link" data-title="Card">Card</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#balance-inquiry" class="toc-h2 toc-link" data-title="balance inquiry">balance inquiry</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#errors" class="toc-h1 toc-link" data-title="Errors">Errors</a>
           </li>
       </ul>
@@ -759,6 +767,98 @@ curl <span class="s2">"https://sandbox.enayapay.com/api/v2.1/change/password/"</
 <td>503</td>
 <td><code>{&quot;details&quot; :&quot;service not available&quot;}</code></td>
 <td>when service not available</td>
+</tr>
+</tbody></table>
+<h1 id='card'>Card</h1><h2 id='balance-inquiry'>balance inquiry</h2><div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
+curl <span class="s2">"https://sandbox.enayapay.com/api/v2.1/balance/inquiry/"</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"x-api-key: gffdgdfgdfgdfgdfgdgd , token: ffdfdsfsdfds "</span>
+</code></pre></div>
+<blockquote>
+<p>Make sure to replace <code>gffdgdfgdfgdfgdfgdgd</code> with your API key and Token.</p>
+</blockquote>
+<h3 id='http-request-6'>HTTP Request</h3>
+<p><code>POST https://sandbox.enayapay.com/api/v2.1/balance/inquiry/</code></p>
+<h3 id='description-6'>Description</h3>
+<p><code>this endpoint use to provide information on the customer account balance</code></p>
+<h3 id='headers-6'>Headers</h3><div class="highlight"><pre class="highlight json tab-json"><code><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"x-api-key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fddfgdfgdfgdfgdfg"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fsfsfkwoieriworiewriweiriwerieworiowe"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+
+</span></code></pre></div><h3 id='body-6'>Body</h3><div class="highlight"><pre class="highlight json tab-json"><code><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"pan"</span><span class="p">:</span><span class="s2">"45456789456798893"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"ipin"</span><span class="p">:</span><span class="s2">"rtewrrtertretretrtrwtwrt"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"uuid"</span><span class="p">:</span><span class="s2">"fdfregregergerlkfjerfklerjfkgerjgjre"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"expiration_date"</span><span class="p">:</span><span class="s2">"0824"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+
+
+</span></code></pre></div><h3 id='parameters-description-6'>Parameters Description</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>pan</td>
+<td>required</td>
+<td>number of card that user want to known its balance</td>
+<td>String</td>
+</tr>
+<tr>
+<td>ipin</td>
+<td>required</td>
+<td>credential of customer</td>
+<td>String</td>
+</tr>
+<tr>
+<td>expiration_date</td>
+<td>required</td>
+<td>expiration  date of card</td>
+<td>String</td>
+</tr>
+<tr>
+<td>uuid</td>
+<td>required</td>
+<td>string</td>
+<td></td>
+</tr>
+</tbody></table>
+<h3 id='response-6'>Response</h3>
+<table><thead>
+<tr>
+<th>StatusCode</th>
+<th>Response Data</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td><code>{&quot;response_code&quot;: 0,&quot;balance&quot;: 400,&quot;response_status&quot;: &quot;Successful&quot;,&quot;uuid&quot;: &quot;fdfregregergerlkfjerfklerjfkgerjgjre&quot;}</code></td>
+<td>account user informations</td>
+</tr>
+<tr>
+<td>400</td>
+<td><code>{ &quot;details&quot;: {&quot;pan&quot;: [&quot;This field is required.&quot;]} }</code></td>
+<td>Bad request occurred when forget parameter</td>
+</tr>
+<tr>
+<td>401</td>
+<td>None</td>
+<td>your api key not valid</td>
+</tr>
+<tr>
+<td>406</td>
+<td><code>{&quot;response_code&quot;: 696,&quot;response_message&quot;: &quot;SYSTEM_ERROR&quot;}</code></td>
+<td>service provider errors with code</td>
+</tr>
+<tr>
+<td>502</td>
+<td><code>{&quot;details&quot; :&quot;bad getway&quot;}</code></td>
+<td>when service provider down</td>
 </tr>
 </tbody></table>
 <h1 id='errors'>Errors</h1>
