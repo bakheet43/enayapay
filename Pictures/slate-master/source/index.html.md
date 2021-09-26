@@ -285,7 +285,8 @@ StatusCode | Response Data | Description
 404 | ``` {"details": "user not registered"} ``` | user not register
 503 | ``` {"details" :"service not available"} ``` | when service not available
 
-# Card
+# Cards
+
 ## balance inquiry
 
 ```shell
