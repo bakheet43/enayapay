@@ -501,3 +501,187 @@ StatusCode | Response Data | Description
 401 | None | your api key not valid
 406 | ```{"response_code": 696,"response_message": "SYSTEM_ERROR"}``` | service provider errors with code
 502 | ``` {"details" :"bad getway"} ``` | when service provider down 
+
+# Telecoms
+
+
+## Topup
+
+```shell
+# With shell, you can just pass the correct header with each request
+curl "https://sandbox.enayapay.com/api/v2.1/telecom/110010001/topup/" \
+  -H "x-api-key: gffdgdfgdfgdfgdfgdgd , token: ffdfdsfsdfds "
+```
+
+> Make sure to replace `gffdgdfgdfgdfgdfgdgd` with your API key and Token.
+
+
+### HTTP Request
+`POST https://sandbox.enayapay.com/api/v2.1/telecom/110010001/topup/`
+
+### Description
+
+``this endpoint use to provide topup to customer base on payeeid ``
+
+### Headers
+```json
+ {
+    "x-api-key": "fddfgdfgdfgdfgdfg",
+    "token": "fsfsfkwoieriworiewriweiriwerieworiowe"
+  }
+
+```
+### Body
+```json
+ {
+    "pan":"43443455656653465",
+    "ipin":"reretertrterty5rt45",
+    "expiration_date":"0824",
+    "phone_no":"0905450785",
+    "amount": 300,
+    "uuid":"rerrwerwerwerwerwerwrweRWrwrwr",
+    "platform":"web"
+    
+}
+
+
+```
+### Parameters Description
+Parameter | Default | Description | Type
+--------- | ------- | ----------- | ----------
+pan | required | number of card that user want to py topup by it | String
+ipin | required | credential of customer | String
+expiration_date | required | expiration  date of card| String
+amount | required | amount of topup that customer need to pay | Float
+phone_no | required | phone number want to charge it | String
+uuid | required | the key used to encrypt ipin| string
+platform | required | platform that customer used to charge phone number | String
+
+
+### Response 
+StatusCode | Response Data | Description  
+--------- | ------- | ---------
+200 | ```{"pan": "43443455656653465","acq_tran_fee": 0,"dynamic_fees": 0,"issuer_tran_fee": 0,"payment_info": "MPHONE= 2490905450785","response_message": "Approved","response_status": "Successful","amount": 300,tran_date_time": 55665455444,"uuid": "rerrwerwerwerwerwerwrweRWrwrwr","response_code": 0}```| Transaction done successfully
+400 | ``{ "details": {"pan": ["This field is required."]} }``| Bad request occurred when forget parameter 
+401 | None | your api key not valid
+404 | | customer not registered
+406 | ```{"response_code": 696,"response_message": "SYSTEM_ERROR"}``` | service provider errors with code
+503 | ``` {"details" :"service unavailable"} ``` | service disable for now
+
+
+## Inquiry
+
+```shell
+# With shell, you can just pass the correct header with each request
+curl "https://sandbox.enayapay.com/api/v2.1/telecom/1100055511/inquiry/" \
+  -H "x-api-key: gffdgdfgdfgdfgdfgdgd , token: ffdfdsfsdfds "
+```
+
+> Make sure to replace `gffdgdfgdfgdfgdfgdgd` with your API key and Token.
+
+
+### HTTP Request
+`POST https://sandbox.enayapay.com/api/v2.1/telecom/1100055511/inquiry/`
+
+### Description
+
+``this endpoint use to provide information of cutomer account invoice ``
+
+### Headers
+```json
+ {
+    "x-api-key": "fddfgdfgdfgdfgdfg",
+    "token": "fsfsfkwoieriworiewriweiriwerieworiowe"
+  }
+
+```
+### Body
+```json
+ {
+
+    "phone_no":"0905450785"
+    
+}
+
+
+```
+### Parameters Description
+Parameter | Default | Description | Type
+--------- | ------- | ----------- | ----------
+
+phone_no | required | phone number that customer want to known invoice for it | String
+
+
+### Response 
+StatusCode | Response Data | Description  
+--------- | ------- | ---------
+200 | ```{"total_amount": 400,"contract_number": 34234235345,"acq_tran_fee": 0,"dynamic_fees": 0,"issuer_tran_fee": 0,"tran_date_time": 65475475}```| Transaction done successfully
+400 | ``{ "details": {"phone_no": ["This field is required."]} }``| Bad request occurred when forget parameter 
+401 | None | your api key not valid
+404 | | customer not registered
+406 | ```{"response_code": 696,"response_message": "SYSTEM_ERROR"}``` | service provider errors with code
+503 | ``` {"details" :"service unavailable"} ``` | service disable for now
+
+
+## Bill Payment
+
+```shell
+# With shell, you can just pass the correct header with each request
+curl "https://sandbox.enayapay.com/api/v2.1/telecom/110010001/topup/" \
+  -H "x-api-key: gffdgdfgdfgdfgdfgdgd , token: ffdfdsfsdfds "
+```
+
+> Make sure to replace `gffdgdfgdfgdfgdfgdgd` with your API key and Token.
+
+
+### HTTP Request
+`POST https://sandbox.enayapay.com/api/v2.1/telecom/110010001/topup/`
+
+### Description
+
+``this endpoint use by customers bill they invoices ``
+
+### Headers
+```json
+ {
+    "x-api-key": "fddfgdfgdfgdfgdfg",
+    "token": "fsfsfkwoieriworiewriweiriwerieworiowe"
+  }
+
+```
+### Body
+```json
+ {
+    "pan":"43443455656653465",
+    "ipin":"reretertrterty5rt45",
+    "expiration_date":"0824",
+    "phone_no":"0905450785",
+    "amount": 300,
+    "uuid":"rerrwerwerwerwerwerwrweRWrwrwr",
+    "platform":"web"
+    
+}
+
+
+```
+### Parameters Description
+Parameter | Default | Description | Type
+--------- | ------- | ----------- | ----------
+pan | required | number of card that user want to py topup by it | String
+ipin | required | credential of customer | String
+expiration_date | required | expiration  date of card| String
+amount | required | amount of topup that customer need to pay | Float
+phone_no | required | phone number want to charge it | String
+uuid | required | the key used to encrypt ipin| string
+platform | required | platform that customer used to charge phone number | String
+
+
+### Response 
+StatusCode | Response Data | Description  
+--------- | ------- | ---------
+200 | ```{"pan": "43443455656653465","acq_tran_fee": 0,"dynamic_fees": 0,"issuer_tran_fee": 0,"payment_info": "MPHONE= 2490905450785","response_message": "Approved","response_status": "Successful","amount": 300,tran_date_time": 55665455444,"uuid": "rerrwerwerwerwerwerwrweRWrwrwr","response_code": 0}```| Transaction done successfully
+400 | ``{ "details": {"pan": ["This field is required."]} }``| Bad request occurred when forget parameter 
+401 | None | your api key not valid
+404 | | customer not registered
+406 | ```{"response_code": 696,"response_message": "SYSTEM_ERROR"}``` | service provider errors with code
+503 | ``` {"details" :"service unavailable"} ``` | service disable for now
