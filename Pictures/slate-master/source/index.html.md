@@ -287,6 +287,165 @@ StatusCode | Response Data | Description
 
 # Cards
 
+
+## add card
+
+```shell
+# With shell, you can just pass the correct header with each request
+curl "https://sandbox.enayapay.com/api/v2.1/cards/" \
+  -H "x-api-key: gffdgdfgdfgdfgdfgdgd , token: ffdfdsfsdfds "
+```
+
+> Make sure to replace `gffdgdfgdfgdfgdfgdgd` with your API key and Token.
+
+
+### HTTP Request
+`POST https://sandbox.enayapay.com/api/v2.1/cards/`
+
+### Description
+
+``this endpoint use to add new card to your account``
+
+### Headers
+```json
+ {
+    "x-api-key": "fddfgdfgdfgdfgdfg",
+    "token": "fsfsfkwoieriworiewriweiriwerieworiowe"
+  }
+
+```
+### Body
+```json
+ {
+    "pan":"454567894567988",
+    "label":"bakheet",
+    "expiration_date":"0824",
+    "default":1
+  }
+
+
+```
+### Parameters Description
+Parameter | Default | Description | Type
+--------- | ------- | ----------- | ----------
+pan | required | number of card that user want to add | String
+label | required | display name of card | String
+expiration_date | required | expiration  date of card| String
+default | required | to set card as default in use| string
+
+
+
+### Response 
+StatusCode | Response Data | Description  
+--------- | ------- | ---------
+201 | ```{"id" :1}```| card added successfully
+400 | ``{ "details": {"pan": ["This field is required."]} }``| Bad request occurred when forget parameter 
+302 | None | card already added
+401 | None | your api key not valid
+404 | ``{"details": " user not registered"}`` | user not register
+406 | ```{"details": "unknown card number"}``` | user card number not valid
+503 | ``` {"details" :"service unvailable for now"} ``` | service disable for user 
+
+## get cards
+
+```shell
+# With shell, you can just pass the correct header with each request
+curl "https://sandbox.enayapay.com/api/v2.1/cards/" \
+  -H "x-api-key: gffdgdfgdfgdfgdfgdgd , token: ffdfdsfsdfds "
+```
+
+> Make sure to replace `gffdgdfgdfgdfgdfgdgd` with your API key and Token.
+
+
+### HTTP Request
+`GET https://sandbox.enayapay.com/api/v2.1/cards/`
+
+### Description
+
+``this endpoint use views all cards that user assgin to his account``
+
+### Headers
+```json
+ {
+    "x-api-key": "fddfgdfgdfgdfgdfg",
+    "token": "fsfsfkwoieriworiewriweiriwerieworiowe"
+  }
+
+```
+### Response 
+StatusCode | Response Data | Description  
+--------- | ------- | ---------
+200 | ```[{"id": 1,"card_pan": "454567894567988","card_expiry": "0824","card_label": "bakheet","card_type": "International","card_image": "Screenshot_from_2021-07-08_14-33-58.png","default": 1}]```| all cards that user assign to his account
+401 | None | your api key not valid
+404 | ``{"details": " user not registered"}`` | user not register
+503 | ``` {"details" :"service unvailable for now"} ``` | service disable for user 
+
+## get card
+
+```shell
+# With shell, you can just pass the correct header with each request
+curl "https://sandbox.enayapay.com/api/v2.1/card/1/" \
+  -H "x-api-key: gffdgdfgdfgdfgdfgdgd , token: ffdfdsfsdfds "
+```
+
+> Make sure to replace `gffdgdfgdfgdfgdfgdgd` with your API key and Token.
+
+
+### HTTP Request
+`GET https://sandbox.enayapay.com/api/v2.1/card/1/`
+
+### Description
+
+``this endpoint use view one card  base on card id that user assgin to his account``
+
+### Headers
+```json
+ {
+    "x-api-key": "fddfgdfgdfgdfgdfg",
+    "token": "fsfsfkwoieriworiewriweiriwerieworiowe"
+  }
+
+```
+### Response 
+StatusCode | Response Data | Description  
+--------- | ------- | ---------
+200 | ```[{"id": 1,"card_pan": "454567894567988","card_expiry": "0824","card_label": "bakheet","card_type": "International","card_image": "Screenshot_from_2021-07-08_14-33-58.png","default": 1}]```|  view one card that user assign to his account
+401 | None | your api key not valid
+404 | ``{"details": " user not registered"}`` | user not register
+503 | ``` {"details" :"service unvailable for now"} ``` | service disable for user 
+
+## delete card
+
+```shell
+# With shell, you can just pass the correct header with each request
+curl "https://sandbox.enayapay.com/api/v2.1/card/1/" \
+  -H "x-api-key: gffdgdfgdfgdfgdfgdgd , token: ffdfdsfsdfds "
+```
+
+> Make sure to replace `gffdgdfgdfgdfgdfgdgd` with your API key and Token.
+
+
+### HTTP Request
+`DELETE https://sandbox.enayapay.com/api/v2.1/card/1/`
+
+### Description
+
+``this endpoint use remove card  base on card id that user assgin to his account``
+
+### Headers
+```json
+ {
+    "x-api-key": "fddfgdfgdfgdfgdfg",
+    "token": "fsfsfkwoieriworiewriweiriwerieworiowe"
+  }
+
+```
+### Response 
+StatusCode | Response Data | Description  
+--------- | ------- | ---------
+204 | ```{"details":"card has been deleted successfully"}```|  view one card that user assign to his account
+401 | None | your api key not valid
+404 | ``{"details": " user not registered"}`` | user not register
 ## balance inquiry
 
 ```shell
