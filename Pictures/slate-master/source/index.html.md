@@ -284,3 +284,60 @@ StatusCode | Response Data | Description
 401 | None | your api key not valid
 404 | ``` {"details": "user not registered"} ``` | user not register
 503 | ``` {"details" :"service not available"} ``` | when service not available
+
+# Card
+## balance inquiry
+
+```shell
+# With shell, you can just pass the correct header with each request
+curl "https://sandbox.enayapay.com/api/v2.1/balance/inquiry/" \
+  -H "x-api-key: gffdgdfgdfgdfgdfgdgd , token: ffdfdsfsdfds "
+```
+
+> Make sure to replace `gffdgdfgdfgdfgdfgdgd` with your API key and Token.
+
+
+### HTTP Request
+`POST https://sandbox.enayapay.com/api/v2.1/balance/inquiry/`
+
+### Description
+
+``this endpoint use to provide information on the customer account balance``
+
+### Headers
+```json
+ {
+    "x-api-key": "fddfgdfgdfgdfgdfg",
+    "token": "fsfsfkwoieriworiewriweiriwerieworiowe"
+  }
+
+```
+### Body
+```json
+ {
+    "pan":"45456789456798893",
+    "ipin":"rtewrrtertretretrtrwtwrt",
+    "uuid":"fdfregregergerlkfjerfklerjfkgerjgjre",
+    "expiration_date":"0824"
+  }
+
+
+```
+### Parameters Description
+Parameter | Default | Description | Type
+--------- | ------- | ----------- | ----------
+pan | required | number of card that user want to known its balance | String
+ipin | required | credential of customer | String
+expiration_date | required | expiration  date of card| String
+uuid | required | string
+
+
+
+### Response 
+StatusCode | Response Data | Description  
+--------- | ------- | ---------
+200 | ```{"response_code": 0,"balance": 400,"response_status": "Successful","uuid": "fdfregregergerlkfjerfklerjfkgerjgjre"}```| account user informations
+400 | ``{ "details": {"pan": ["This field is required."]} }``| Bad request occurred when forget parameter 
+401 | None | your api key not valid
+406 | ```{"response_code": 696,"response_message": "SYSTEM_ERROR"}``` | service provider errors with code
+502 | ``` {"details" :"bad getway"} ``` | when service provider down 
