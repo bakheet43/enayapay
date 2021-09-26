@@ -332,6 +332,18 @@
             <a href="#cards" class="toc-h1 toc-link" data-title="Cards">Cards</a>
               <ul class="toc-list-h2">
                   <li>
+                    <a href="#add-card" class="toc-h2 toc-link" data-title="add card">add card</a>
+                  </li>
+                  <li>
+                    <a href="#get-cards" class="toc-h2 toc-link" data-title="get cards">get cards</a>
+                  </li>
+                  <li>
+                    <a href="#get-card" class="toc-h2 toc-link" data-title="get card">get card</a>
+                  </li>
+                  <li>
+                    <a href="#delete-card" class="toc-h2 toc-link" data-title="delete card">delete card</a>
+                  </li>
+                  <li>
                     <a href="#balance-inquiry" class="toc-h2 toc-link" data-title="balance inquiry">balance inquiry</a>
                   </li>
               </ul>
@@ -769,23 +781,255 @@ curl <span class="s2">"https://sandbox.enayapay.com/api/v2.1/change/password/"</
 <td>when service not available</td>
 </tr>
 </tbody></table>
-<h1 id='cards'>Cards</h1><h2 id='balance-inquiry'>balance inquiry</h2><div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
-curl <span class="s2">"https://sandbox.enayapay.com/api/v2.1/balance/inquiry/"</span> <span class="se">\</span>
+<h1 id='cards'>Cards</h1><h2 id='add-card'>add card</h2><div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
+curl <span class="s2">"https://sandbox.enayapay.com/api/v2.1/cards/"</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s2">"x-api-key: gffdgdfgdfgdfgdfgdgd , token: ffdfdsfsdfds "</span>
 </code></pre></div>
 <blockquote>
 <p>Make sure to replace <code>gffdgdfgdfgdfgdfgdgd</code> with your API key and Token.</p>
 </blockquote>
 <h3 id='http-request-6'>HTTP Request</h3>
-<p><code>POST https://sandbox.enayapay.com/api/v2.1/balance/inquiry/</code></p>
+<p><code>POST https://sandbox.enayapay.com/api/v2.1/cards/</code></p>
 <h3 id='description-6'>Description</h3>
-<p><code>this endpoint use to provide information on the customer account balance</code></p>
+<p><code>this endpoint use to add new card to your account</code></p>
 <h3 id='headers-6'>Headers</h3><div class="highlight"><pre class="highlight json tab-json"><code><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nl">"x-api-key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fddfgdfgdfgdfgdfg"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fsfsfkwoieriworiewriweiriwerieworiowe"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 
 </span></code></pre></div><h3 id='body-6'>Body</h3><div class="highlight"><pre class="highlight json tab-json"><code><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"pan"</span><span class="p">:</span><span class="s2">"454567894567988"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"label"</span><span class="p">:</span><span class="s2">"bakheet"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"expiration_date"</span><span class="p">:</span><span class="s2">"0824"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"default"</span><span class="p">:</span><span class="mi">1</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+
+
+</span></code></pre></div><h3 id='parameters-description-6'>Parameters Description</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>pan</td>
+<td>required</td>
+<td>number of card that user want to add</td>
+<td>String</td>
+</tr>
+<tr>
+<td>label</td>
+<td>required</td>
+<td>display name of card</td>
+<td>String</td>
+</tr>
+<tr>
+<td>expiration_date</td>
+<td>required</td>
+<td>expiration  date of card</td>
+<td>String</td>
+</tr>
+<tr>
+<td>default</td>
+<td>required</td>
+<td>to set card as default in use</td>
+<td>string</td>
+</tr>
+</tbody></table>
+<h3 id='response-6'>Response</h3>
+<table><thead>
+<tr>
+<th>StatusCode</th>
+<th>Response Data</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>201</td>
+<td><code>{&quot;id&quot; :1}</code></td>
+<td>card added successfully</td>
+</tr>
+<tr>
+<td>400</td>
+<td><code>{ &quot;details&quot;: {&quot;pan&quot;: [&quot;This field is required.&quot;]} }</code></td>
+<td>Bad request occurred when forget parameter</td>
+</tr>
+<tr>
+<td>302</td>
+<td>None</td>
+<td>card already added</td>
+</tr>
+<tr>
+<td>401</td>
+<td>None</td>
+<td>your api key not valid</td>
+</tr>
+<tr>
+<td>404</td>
+<td><code>{&quot;details&quot;: &quot; user not registered&quot;}</code></td>
+<td>user not register</td>
+</tr>
+<tr>
+<td>406</td>
+<td><code>{&quot;details&quot;: &quot;unknown card number&quot;}</code></td>
+<td>user card number not valid</td>
+</tr>
+<tr>
+<td>503</td>
+<td><code>{&quot;details&quot; :&quot;service unvailable for now&quot;}</code></td>
+<td>service disable for user</td>
+</tr>
+</tbody></table>
+<h2 id='get-cards'>get cards</h2><div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
+curl <span class="s2">"https://sandbox.enayapay.com/api/v2.1/cards/"</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"x-api-key: gffdgdfgdfgdfgdfgdgd , token: ffdfdsfsdfds "</span>
+</code></pre></div>
+<blockquote>
+<p>Make sure to replace <code>gffdgdfgdfgdfgdfgdgd</code> with your API key and Token.</p>
+</blockquote>
+<h3 id='http-request-7'>HTTP Request</h3>
+<p><code>GET https://sandbox.enayapay.com/api/v2.1/cards/</code></p>
+<h3 id='description-7'>Description</h3>
+<p><code>this endpoint use views all cards that user assgin to his account</code></p>
+<h3 id='headers-7'>Headers</h3><div class="highlight"><pre class="highlight json tab-json"><code><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"x-api-key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fddfgdfgdfgdfgdfg"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fsfsfkwoieriworiewriweiriwerieworiowe"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+
+</span></code></pre></div><h3 id='response-7'>Response</h3>
+<table><thead>
+<tr>
+<th>StatusCode</th>
+<th>Response Data</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td><code>[{&quot;id&quot;: 1,&quot;card_pan&quot;: &quot;454567894567988&quot;,&quot;card_expiry&quot;: &quot;0824&quot;,&quot;card_label&quot;: &quot;bakheet&quot;,&quot;card_type&quot;: &quot;International&quot;,&quot;card_image&quot;: &quot;Screenshot_from_2021-07-08_14-33-58.png&quot;,&quot;default&quot;: 1}]</code></td>
+<td>all cards that user assign to his account</td>
+</tr>
+<tr>
+<td>401</td>
+<td>None</td>
+<td>your api key not valid</td>
+</tr>
+<tr>
+<td>404</td>
+<td><code>{&quot;details&quot;: &quot; user not registered&quot;}</code></td>
+<td>user not register</td>
+</tr>
+<tr>
+<td>503</td>
+<td><code>{&quot;details&quot; :&quot;service unvailable for now&quot;}</code></td>
+<td>service disable for user</td>
+</tr>
+</tbody></table>
+<h2 id='get-card'>get card</h2><div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
+curl <span class="s2">"https://sandbox.enayapay.com/api/v2.1/card/1/"</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"x-api-key: gffdgdfgdfgdfgdfgdgd , token: ffdfdsfsdfds "</span>
+</code></pre></div>
+<blockquote>
+<p>Make sure to replace <code>gffdgdfgdfgdfgdfgdgd</code> with your API key and Token.</p>
+</blockquote>
+<h3 id='http-request-8'>HTTP Request</h3>
+<p><code>GET https://sandbox.enayapay.com/api/v2.1/card/1/</code></p>
+<h3 id='description-8'>Description</h3>
+<p><code>this endpoint use view one card  base on card id that user assgin to his account</code></p>
+<h3 id='headers-8'>Headers</h3><div class="highlight"><pre class="highlight json tab-json"><code><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"x-api-key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fddfgdfgdfgdfgdfg"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fsfsfkwoieriworiewriweiriwerieworiowe"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+
+</span></code></pre></div><h3 id='response-8'>Response</h3>
+<table><thead>
+<tr>
+<th>StatusCode</th>
+<th>Response Data</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td><code>[{&quot;id&quot;: 1,&quot;card_pan&quot;: &quot;454567894567988&quot;,&quot;card_expiry&quot;: &quot;0824&quot;,&quot;card_label&quot;: &quot;bakheet&quot;,&quot;card_type&quot;: &quot;International&quot;,&quot;card_image&quot;: &quot;Screenshot_from_2021-07-08_14-33-58.png&quot;,&quot;default&quot;: 1}]</code></td>
+<td>view one card that user assign to his account</td>
+</tr>
+<tr>
+<td>401</td>
+<td>None</td>
+<td>your api key not valid</td>
+</tr>
+<tr>
+<td>404</td>
+<td><code>{&quot;details&quot;: &quot; user not registered&quot;}</code></td>
+<td>user not register</td>
+</tr>
+<tr>
+<td>503</td>
+<td><code>{&quot;details&quot; :&quot;service unvailable for now&quot;}</code></td>
+<td>service disable for user</td>
+</tr>
+</tbody></table>
+<h2 id='delete-card'>delete card</h2><div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
+curl <span class="s2">"https://sandbox.enayapay.com/api/v2.1/card/1/"</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"x-api-key: gffdgdfgdfgdfgdfgdgd , token: ffdfdsfsdfds "</span>
+</code></pre></div>
+<blockquote>
+<p>Make sure to replace <code>gffdgdfgdfgdfgdfgdgd</code> with your API key and Token.</p>
+</blockquote>
+<h3 id='http-request-9'>HTTP Request</h3>
+<p><code>DELETE https://sandbox.enayapay.com/api/v2.1/card/1/</code></p>
+<h3 id='description-9'>Description</h3>
+<p><code>this endpoint use remove card  base on card id that user assgin to his account</code></p>
+<h3 id='headers-9'>Headers</h3><div class="highlight"><pre class="highlight json tab-json"><code><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"x-api-key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fddfgdfgdfgdfgdfg"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fsfsfkwoieriworiewriweiriwerieworiowe"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+
+</span></code></pre></div><h3 id='response-9'>Response</h3>
+<table><thead>
+<tr>
+<th>StatusCode</th>
+<th>Response Data</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>204</td>
+<td><code>{&quot;details&quot;:&quot;card has been deleted successfully&quot;}</code></td>
+<td>view one card that user assign to his account</td>
+</tr>
+<tr>
+<td>401</td>
+<td>None</td>
+<td>your api key not valid</td>
+</tr>
+<tr>
+<td>404</td>
+<td><code>{&quot;details&quot;: &quot; user not registered&quot;}</code></td>
+<td>user not register</td>
+</tr>
+</tbody></table>
+<h2 id='balance-inquiry'>balance inquiry</h2><div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
+curl <span class="s2">"https://sandbox.enayapay.com/api/v2.1/balance/inquiry/"</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"x-api-key: gffdgdfgdfgdfgdfgdgd , token: ffdfdsfsdfds "</span>
+</code></pre></div>
+<blockquote>
+<p>Make sure to replace <code>gffdgdfgdfgdfgdfgdgd</code> with your API key and Token.</p>
+</blockquote>
+<h3 id='http-request-10'>HTTP Request</h3>
+<p><code>POST https://sandbox.enayapay.com/api/v2.1/balance/inquiry/</code></p>
+<h3 id='description-10'>Description</h3>
+<p><code>this endpoint use to provide information on the customer account balance</code></p>
+<h3 id='headers-10'>Headers</h3><div class="highlight"><pre class="highlight json tab-json"><code><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"x-api-key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fddfgdfgdfgdfgdfg"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fsfsfkwoieriworiewriweiriwerieworiowe"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+
+</span></code></pre></div><h3 id='body-7'>Body</h3><div class="highlight"><pre class="highlight json tab-json"><code><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nl">"pan"</span><span class="p">:</span><span class="s2">"45456789456798893"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"ipin"</span><span class="p">:</span><span class="s2">"rtewrrtertretretrtrwtwrt"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"uuid"</span><span class="p">:</span><span class="s2">"fdfregregergerlkfjerfklerjfkgerjgjre"</span><span class="p">,</span><span class="w">
@@ -793,7 +1037,7 @@ curl <span class="s2">"https://sandbox.enayapay.com/api/v2.1/balance/inquiry/"</
   </span><span class="p">}</span><span class="w">
 
 
-</span></code></pre></div><h3 id='parameters-description-6'>Parameters Description</h3>
+</span></code></pre></div><h3 id='parameters-description-7'>Parameters Description</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -827,7 +1071,7 @@ curl <span class="s2">"https://sandbox.enayapay.com/api/v2.1/balance/inquiry/"</
 <td></td>
 </tr>
 </tbody></table>
-<h3 id='response-6'>Response</h3>
+<h3 id='response-10'>Response</h3>
 <table><thead>
 <tr>
 <th>StatusCode</th>
