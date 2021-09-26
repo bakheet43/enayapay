@@ -349,6 +349,20 @@
               </ul>
           </li>
           <li>
+            <a href="#telecoms" class="toc-h1 toc-link" data-title="Telecoms">Telecoms</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#topup" class="toc-h2 toc-link" data-title="Topup">Topup</a>
+                  </li>
+                  <li>
+                    <a href="#inquiry" class="toc-h2 toc-link" data-title="Inquiry">Inquiry</a>
+                  </li>
+                  <li>
+                    <a href="#bill-payment" class="toc-h2 toc-link" data-title="Bill Payment">Bill Payment</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#errors" class="toc-h1 toc-link" data-title="Errors">Errors</a>
           </li>
       </ul>
@@ -1103,6 +1117,318 @@ curl <span class="s2">"https://sandbox.enayapay.com/api/v2.1/balance/inquiry/"</
 <td>502</td>
 <td><code>{&quot;details&quot; :&quot;bad getway&quot;}</code></td>
 <td>when service provider down</td>
+</tr>
+</tbody></table>
+<h1 id='telecoms'>Telecoms</h1><h2 id='topup'>Topup</h2><div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
+curl <span class="s2">"https://sandbox.enayapay.com/api/v2.1/telecom/110010001/topup/"</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"x-api-key: gffdgdfgdfgdfgdfgdgd , token: ffdfdsfsdfds "</span>
+</code></pre></div>
+<blockquote>
+<p>Make sure to replace <code>gffdgdfgdfgdfgdfgdgd</code> with your API key and Token.</p>
+</blockquote>
+<h3 id='http-request-11'>HTTP Request</h3>
+<p><code>POST https://sandbox.enayapay.com/api/v2.1/telecom/110010001/topup/</code></p>
+<h3 id='description-11'>Description</h3>
+<p><code>this endpoint use to provide topup to customer base on payeeid</code></p>
+<h3 id='headers-11'>Headers</h3><div class="highlight"><pre class="highlight json tab-json"><code><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"x-api-key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fddfgdfgdfgdfgdfg"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fsfsfkwoieriworiewriweiriwerieworiowe"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+
+</span></code></pre></div><h3 id='body-8'>Body</h3><div class="highlight"><pre class="highlight json tab-json"><code><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"pan"</span><span class="p">:</span><span class="s2">"43443455656653465"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"ipin"</span><span class="p">:</span><span class="s2">"reretertrterty5rt45"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"expiration_date"</span><span class="p">:</span><span class="s2">"0824"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"phone_no"</span><span class="p">:</span><span class="s2">"0905450785"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">300</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"uuid"</span><span class="p">:</span><span class="s2">"rerrwerwerwerwerwerwrweRWrwrwr"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"platform"</span><span class="p">:</span><span class="s2">"web"</span><span class="w">
+
+</span><span class="p">}</span><span class="w">
+
+
+</span></code></pre></div><h3 id='parameters-description-8'>Parameters Description</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>pan</td>
+<td>required</td>
+<td>number of card that user want to py topup by it</td>
+<td>String</td>
+</tr>
+<tr>
+<td>ipin</td>
+<td>required</td>
+<td>credential of customer</td>
+<td>String</td>
+</tr>
+<tr>
+<td>expiration_date</td>
+<td>required</td>
+<td>expiration  date of card</td>
+<td>String</td>
+</tr>
+<tr>
+<td>amount</td>
+<td>required</td>
+<td>amount of topup that customer need to pay</td>
+<td>Float</td>
+</tr>
+<tr>
+<td>phone_no</td>
+<td>required</td>
+<td>phone number want to charge it</td>
+<td>String</td>
+</tr>
+<tr>
+<td>uuid</td>
+<td>required</td>
+<td>the key used to encrypt ipin</td>
+<td>string</td>
+</tr>
+<tr>
+<td>platform</td>
+<td>required</td>
+<td>platform that customer used to charge phone number</td>
+<td>String</td>
+</tr>
+</tbody></table>
+<h3 id='response-11'>Response</h3>
+<table><thead>
+<tr>
+<th>StatusCode</th>
+<th>Response Data</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td><code>{&quot;pan&quot;: &quot;43443455656653465&quot;,&quot;acq_tran_fee&quot;: 0,&quot;dynamic_fees&quot;: 0,&quot;issuer_tran_fee&quot;: 0,&quot;payment_info&quot;: &quot;MPHONE= 2490905450785&quot;,&quot;response_message&quot;: &quot;Approved&quot;,&quot;response_status&quot;: &quot;Successful&quot;,&quot;amount&quot;: 300,tran_date_time&quot;: 55665455444,&quot;uuid&quot;: &quot;rerrwerwerwerwerwerwrweRWrwrwr&quot;,&quot;response_code&quot;: 0}</code></td>
+<td>Transaction done successfully</td>
+</tr>
+<tr>
+<td>400</td>
+<td><code>{ &quot;details&quot;: {&quot;pan&quot;: [&quot;This field is required.&quot;]} }</code></td>
+<td>Bad request occurred when forget parameter</td>
+</tr>
+<tr>
+<td>401</td>
+<td>None</td>
+<td>your api key not valid</td>
+</tr>
+<tr>
+<td>404</td>
+<td></td>
+<td>customer not registered</td>
+</tr>
+<tr>
+<td>406</td>
+<td><code>{&quot;response_code&quot;: 696,&quot;response_message&quot;: &quot;SYSTEM_ERROR&quot;}</code></td>
+<td>service provider errors with code</td>
+</tr>
+<tr>
+<td>503</td>
+<td><code>{&quot;details&quot; :&quot;service unavailable&quot;}</code></td>
+<td>service disable for now</td>
+</tr>
+</tbody></table>
+<h2 id='inquiry'>Inquiry</h2><div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
+curl <span class="s2">"https://sandbox.enayapay.com/api/v2.1/telecom/1100055511/inquiry/"</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"x-api-key: gffdgdfgdfgdfgdfgdgd , token: ffdfdsfsdfds "</span>
+</code></pre></div>
+<blockquote>
+<p>Make sure to replace <code>gffdgdfgdfgdfgdfgdgd</code> with your API key and Token.</p>
+</blockquote>
+<h3 id='http-request-12'>HTTP Request</h3>
+<p><code>POST https://sandbox.enayapay.com/api/v2.1/telecom/1100055511/inquiry/</code></p>
+<h3 id='description-12'>Description</h3>
+<p><code>this endpoint use to provide information of cutomer account invoice</code></p>
+<h3 id='headers-12'>Headers</h3><div class="highlight"><pre class="highlight json tab-json"><code><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"x-api-key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fddfgdfgdfgdfgdfg"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fsfsfkwoieriworiewriweiriwerieworiowe"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+
+</span></code></pre></div><h3 id='body-9'>Body</h3><div class="highlight"><pre class="highlight json tab-json"><code><span class="w"> </span><span class="p">{</span><span class="w">
+
+    </span><span class="nl">"phone_no"</span><span class="p">:</span><span class="s2">"0905450785"</span><span class="w">
+
+</span><span class="p">}</span><span class="w">
+
+
+</span></code></pre></div><h3 id='parameters-description-9'>Parameters Description</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+</tbody></table>
+
+<p>phone_no | required | phone number that customer want to known invoice for it | String</p>
+<h3 id='response-12'>Response</h3>
+<table><thead>
+<tr>
+<th>StatusCode</th>
+<th>Response Data</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td><code>{&quot;total_amount&quot;: 400,&quot;contract_number&quot;: 34234235345,&quot;acq_tran_fee&quot;: 0,&quot;dynamic_fees&quot;: 0,&quot;issuer_tran_fee&quot;: 0,&quot;tran_date_time&quot;: 65475475}</code></td>
+<td>Transaction done successfully</td>
+</tr>
+<tr>
+<td>400</td>
+<td><code>{ &quot;details&quot;: {&quot;phone_no&quot;: [&quot;This field is required.&quot;]} }</code></td>
+<td>Bad request occurred when forget parameter</td>
+</tr>
+<tr>
+<td>401</td>
+<td>None</td>
+<td>your api key not valid</td>
+</tr>
+<tr>
+<td>404</td>
+<td></td>
+<td>customer not registered</td>
+</tr>
+<tr>
+<td>406</td>
+<td><code>{&quot;response_code&quot;: 696,&quot;response_message&quot;: &quot;SYSTEM_ERROR&quot;}</code></td>
+<td>service provider errors with code</td>
+</tr>
+<tr>
+<td>503</td>
+<td><code>{&quot;details&quot; :&quot;service unavailable&quot;}</code></td>
+<td>service disable for now</td>
+</tr>
+</tbody></table>
+<h2 id='bill-payment'>Bill Payment</h2><div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
+curl <span class="s2">"https://sandbox.enayapay.com/api/v2.1/telecom/110010001/topup/"</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"x-api-key: gffdgdfgdfgdfgdfgdgd , token: ffdfdsfsdfds "</span>
+</code></pre></div>
+<blockquote>
+<p>Make sure to replace <code>gffdgdfgdfgdfgdfgdgd</code> with your API key and Token.</p>
+</blockquote>
+<h3 id='http-request-13'>HTTP Request</h3>
+<p><code>POST https://sandbox.enayapay.com/api/v2.1/telecom/110010001/topup/</code></p>
+<h3 id='description-13'>Description</h3>
+<p><code>this endpoint use by customers bill they invoices</code></p>
+<h3 id='headers-13'>Headers</h3><div class="highlight"><pre class="highlight json tab-json"><code><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"x-api-key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fddfgdfgdfgdfgdfg"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fsfsfkwoieriworiewriweiriwerieworiowe"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+
+</span></code></pre></div><h3 id='body-10'>Body</h3><div class="highlight"><pre class="highlight json tab-json"><code><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"pan"</span><span class="p">:</span><span class="s2">"43443455656653465"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"ipin"</span><span class="p">:</span><span class="s2">"reretertrterty5rt45"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"expiration_date"</span><span class="p">:</span><span class="s2">"0824"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"phone_no"</span><span class="p">:</span><span class="s2">"0905450785"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">300</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"uuid"</span><span class="p">:</span><span class="s2">"rerrwerwerwerwerwerwrweRWrwrwr"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"platform"</span><span class="p">:</span><span class="s2">"web"</span><span class="w">
+
+</span><span class="p">}</span><span class="w">
+
+
+</span></code></pre></div><h3 id='parameters-description-10'>Parameters Description</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>pan</td>
+<td>required</td>
+<td>number of card that user want to py topup by it</td>
+<td>String</td>
+</tr>
+<tr>
+<td>ipin</td>
+<td>required</td>
+<td>credential of customer</td>
+<td>String</td>
+</tr>
+<tr>
+<td>expiration_date</td>
+<td>required</td>
+<td>expiration  date of card</td>
+<td>String</td>
+</tr>
+<tr>
+<td>amount</td>
+<td>required</td>
+<td>amount of topup that customer need to pay</td>
+<td>Float</td>
+</tr>
+<tr>
+<td>phone_no</td>
+<td>required</td>
+<td>phone number want to charge it</td>
+<td>String</td>
+</tr>
+<tr>
+<td>uuid</td>
+<td>required</td>
+<td>the key used to encrypt ipin</td>
+<td>string</td>
+</tr>
+<tr>
+<td>platform</td>
+<td>required</td>
+<td>platform that customer used to charge phone number</td>
+<td>String</td>
+</tr>
+</tbody></table>
+<h3 id='response-13'>Response</h3>
+<table><thead>
+<tr>
+<th>StatusCode</th>
+<th>Response Data</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td><code>{&quot;pan&quot;: &quot;43443455656653465&quot;,&quot;acq_tran_fee&quot;: 0,&quot;dynamic_fees&quot;: 0,&quot;issuer_tran_fee&quot;: 0,&quot;payment_info&quot;: &quot;MPHONE= 2490905450785&quot;,&quot;response_message&quot;: &quot;Approved&quot;,&quot;response_status&quot;: &quot;Successful&quot;,&quot;amount&quot;: 300,tran_date_time&quot;: 55665455444,&quot;uuid&quot;: &quot;rerrwerwerwerwerwerwrweRWrwrwr&quot;,&quot;response_code&quot;: 0}</code></td>
+<td>Transaction done successfully</td>
+</tr>
+<tr>
+<td>400</td>
+<td><code>{ &quot;details&quot;: {&quot;pan&quot;: [&quot;This field is required.&quot;]} }</code></td>
+<td>Bad request occurred when forget parameter</td>
+</tr>
+<tr>
+<td>401</td>
+<td>None</td>
+<td>your api key not valid</td>
+</tr>
+<tr>
+<td>404</td>
+<td></td>
+<td>customer not registered</td>
+</tr>
+<tr>
+<td>406</td>
+<td><code>{&quot;response_code&quot;: 696,&quot;response_message&quot;: &quot;SYSTEM_ERROR&quot;}</code></td>
+<td>service provider errors with code</td>
+</tr>
+<tr>
+<td>503</td>
+<td><code>{&quot;details&quot; :&quot;service unavailable&quot;}</code></td>
+<td>service disable for now</td>
 </tr>
 </tbody></table>
 <h1 id='errors'>Errors</h1>
