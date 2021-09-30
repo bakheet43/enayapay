@@ -706,7 +706,7 @@ curl "https://sandbox.enayapay.com/api/v2.1/electricity/" \
 
 ### Description
 
-``this endpoint use by customers bill they invoices ``
+``this endpoint use by customers to charge they meters ``
 
 ### Headers
 ```json
